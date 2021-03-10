@@ -1,0 +1,52 @@
+.userPanel {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  width: 800px;
+  height: 100%;
+  background-color: rgb(0, 217, 255);
+}
+
+.userList {
+  width: 160px;
+  /* height: 40px; */
+  margin: 0;
+  padding: 0;
+  background-color: rgba(39, 108, 199, 0.87);
+  color: white;
+  text-align: left;
+  list-style: none;
+}
+
+.selectedUser {
+  background: pink;
+}
+
+.userList li {
+  padding: 10px;
+  /* margin-bottom: 20px; */
+}
+
+.userList li:hover {
+  cursor: pointer;
+  background: pink;
+}
+
+.userItem {
+  /* background-color: rgb(0, 217, 255); */
+  width: 660px;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+}
+
+.catch_phrase {
+  font-style: italic;
+}
+
+p {
+  padding: 0;
+  margin: 5px 20px;
+}
+
+/* https://codesandbox.io/s/cweek-6stateless-components-from-stateful-components-comments-gdxmf?file=/src/containers/UsersList.js */

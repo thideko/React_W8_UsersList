@@ -5,31 +5,34 @@ import { useState } from "react";
 import UserItem from "./UserItem";
 
 export default function UserList(props) {
-  // const [isSelected, setIsSelected] = useState(false);
-  const [selectedUserId, setSelectedUserId] = useState(1);
+  // const [selectedUserId, setSelectedUserId] = useState(1);
+  const [selectedUserId, setSelectedUserId] = useState(null);
 
-  // const selection = () => {
-  //   isSelected((usersData = true));
-  // };
+  // const getUser = (id) => usersData.find((user) => user.id === id);
+
+  const createUsersList = () => {
+    return usersData.map((user) => {
+      return (
+        <li
+          onClick={() => setSelectedUserId(user.id)}
+          key={user.id}
+          id={user.id}
+          className={selectedUserId === user.id ? "selectedUser" : null}
+        >
+          {user.user_name}
+        </li>
+      );
+    });
+  };
 
   return (
     <div className="userPanel">
-      <ul className="userList">
-        {" "}
-        {usersData.map((user, index) => {
-          return (
-            <li
-              onClick={() => setSelectedUserId(user.id)}
-              className={selectedUserId === user.id ? "selectedUser" : null}
-            >
-              {" "}
-              {user.user_name}{" "}
-            </li>
-          );
-        })}
-      </ul>
-
-      <UserItem selectedUser={usersData[selectedUserId - 1]} />
+      <ul className="userList"> {createUsersList()} </ul>
+      {selectedUserId ? (
+        <UserItem selectedUser={usersData[selectedUserId - 1]} />
+      ) : (
+        <p> Select a user from the list</p>
+      )}
     </div>
   );
 }
